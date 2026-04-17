@@ -114,7 +114,7 @@ All three parts are in a single notebook. Run the cells **in order from top to b
 - Assigns topic labels to all 300 articles (expanded Urdu keyword matching + title boost)
 - Computes TF-IDF (10,001 × 300 matrix → `embeddings/tfidf_matrix.npy`)
 - Computes PPMI co-occurrence (5,000 × 5,000, window k=5 → `embeddings/ppmi_matrix.npy`)
-- Trains Skip-gram Word2Vec (d=100, k=5, K=15 negatives, 15 epochs, cosine LR)
+- Trains Skip-gram Word2Vec (d=100, k=5, K=10 negatives, 20 epochs, cosine LR)
 - Evaluates via nearest neighbours, 3CosMul analogy tests, and four-condition MRR comparison
 
 **Key outputs:**
@@ -155,8 +155,8 @@ All three parts are in a single notebook. Run the cells **in order from top to b
 | `data/ner_test.conll` | NER test set in CoNLL format |
 
 **Expected results:**
-- POS fine-tuned: **98.6% accuracy**, **0.946 macro-F1**
-- NER with CRF: **P=0.903, R=0.824, F1=0.862** (entity-level)
+- POS fine-tuned: **98.9% accuracy**, **0.9691 macro-F1**
+- NER with CRF: **P=0.940, R=0.824, F1=0.931** (entity-level)
 
 **Expected runtime:** ~15–30 min on GPU with early stopping (patience=5).
 
@@ -188,8 +188,8 @@ All three parts are in a single notebook. Run the cells **in order from top to b
 | `figures/attention_heatmap_*.png` | Attention weight visualisations |
 
 **Expected results:**
-- BiLSTM classifier: **56.9% accuracy**, **0.546 macro-F1**
-- Transformer: **39.2% accuracy**, **0.147 macro-F1**
+- BiLSTM classifier: **63.8% accuracy**, **0.4925 macro-F1**
+- Transformer: **61.1% accuracy**, **0.4032 macro-F1**
 
 **Expected runtime:** ~10–20 min on GPU (early stopping typically triggers around epoch 20–30).
 
